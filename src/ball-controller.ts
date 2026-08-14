@@ -167,7 +167,7 @@ const ballController = ecs.registerComponent({
     let moveZ = 0
 
     if (forwardInput) {
-      moveX += camForwardX * effectiveForce
+      moveX += camForwardX * effectiveForce 
       moveZ += camForwardZ * effectiveForce
     }
     if (backwardInput) {

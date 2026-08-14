@@ -2251,7 +2251,8 @@
         1,
         1,
         1
-      ]
+      ],
+      "hidden": false
     },
     "88d905c3-9c1e-49bf-83f0-72fb6962eff0": {
       "collider": {
@@ -5140,7 +5141,7 @@
     "d8759b55-101b-4761-8de9-5d9f285e7552": {
       "id": "d8759b55-101b-4761-8de9-5d9f285e7552",
       "position": [
-        9,
+        9.000000000000004,
         2,
         -4
       ],
@@ -5151,9 +5152,9 @@
         1
       ],
       "scale": [
+        3.000000000000005,
         3,
-        3,
-        3
+        3.000000000000005
       ],
       "geometry": null,
       "material": null,
@@ -5541,9 +5542,9 @@
     "5f0f61d7-f023-4e35-a88a-fc854d8b2554": {
       "id": "5f0f61d7-f023-4e35-a88a-fc854d8b2554",
       "position": [
-        7.828548237116094,
+        9.64112975290588,
         2,
-        18.56305524003626
+        18.26727390174303
       ],
       "rotation": [
         0,
@@ -5571,7 +5572,8 @@
       "name": "Barrel",
       "order": 37.110038881773534,
       "shadow": {
-        "castShadow": true
+        "castShadow": true,
+        "receiveShadow": false
       },
       "collider": {
         "geometry": {
@@ -7220,9 +7222,9 @@
     "b5dbadbc-e7b3-4186-9563-29ea409f46ef": {
       "id": "b5dbadbc-e7b3-4186-9563-29ea409f46ef",
       "position": [
-        15.572745832189845,
-        2,
-        9.023481997877937
+        15.572745832189842,
+        1.9999999999999993,
+        9.023481997877933
       ],
       "rotation": [
         0,
@@ -7231,9 +7233,9 @@
         1
       ],
       "scale": [
-        3,
-        3,
-        3
+        8.60009766839202,
+        4.9653890836518375,
+        5.294035559485578
       ],
       "geometry": null,
       "material": null,
@@ -7942,6 +7944,130 @@
       "shadow": {
         "castShadow": true
       }
+    },
+    "f0255dc0-52de-467d-8dd4-84b4f3d541fb": {
+      "id": "f0255dc0-52de-467d-8dd4-84b4f3d541fb",
+      "position": [
+        0.8313091021005907,
+        0,
+        -0.6133458995436047
+      ],
+      "rotation": [
+        0,
+        0,
+        0,
+        1
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "geometry": null,
+      "material": null,
+      "parentId": "5f0f61d7-f023-4e35-a88a-fc854d8b2554",
+      "components": {},
+      "gltfModel": {
+        "src": {
+          "type": "asset",
+          "asset": "assets/models/props/barrel.glb"
+        },
+        "animationClip": "",
+        "loop": true
+      },
+      "name": "Barrel (1)",
+      "order": 37.7811051173276,
+      "shadow": {
+        "castShadow": true
+      },
+      "collider": {
+        "geometry": {
+          "type": "auto"
+        },
+        "mass": 1,
+        "type": "dynamic"
+      }
+    },
+    "56bd2b9e-37e5-4587-95eb-24c89f2f0aa2": {
+      "id": "56bd2b9e-37e5-4587-95eb-24c89f2f0aa2",
+      "position": [
+        0.11253508378217757,
+        3.1882442144381806,
+        6.489653801617387
+      ],
+      "rotation": [
+        0,
+        0,
+        0,
+        1
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "geometry": null,
+      "material": null,
+      "parentId": "40f42a38-19e3-4ed6-90de-138fc409d6eb",
+      "components": {},
+      "gltfModel": {
+        "src": {
+          "type": "asset",
+          "asset": "assets/models/props/8-jewel.glb"
+        },
+        "animationClip": "",
+        "loop": true
+      },
+      "name": "8-jewel.glb",
+      "order": 113.49989763274833,
+      "collider": {
+        "geometry": {
+          "type": "capsule",
+          "radius": 0.699999999999999,
+          "height": 0.9
+        },
+        "mass": 1,
+        "type": "dynamic"
+      }
+    },
+    "de8a27dc-f1c8-400a-8ea9-57e536cea16a": {
+      "id": "de8a27dc-f1c8-400a-8ea9-57e536cea16a",
+      "position": [
+        5.549154417471956,
+        2.5668861150614273,
+        6.520392963790703
+      ],
+      "rotation": [
+        0,
+        0,
+        0,
+        1
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "geometry": {
+        "type": "box",
+        "depth": 1,
+        "height": 1,
+        "width": 1
+      },
+      "material": {
+        "type": "basic",
+        "color": "#FFFFFF",
+        "metalness": 1,
+        "opacity": 0.5
+      },
+      "parentId": "40f42a38-19e3-4ed6-90de-138fc409d6eb",
+      "components": {},
+      "name": "Box",
+      "order": 114.57496931413611,
+      "shadow": {
+        "castShadow": true,
+        "receiveShadow": true
+      }
     }
   },
   "sky": {
@@ -7954,12 +8080,7 @@
   "spaces": {
     "40f42a38-19e3-4ed6-90de-138fc409d6eb": {
       "activeCamera": "a608ddd9-9379-464d-966f-5d8d8674c83c",
-      "fog": {
-        "type": "linear",
-        "near": 0.1,
-        "far": 1000,
-        "color": "#FFFFFF"
-      },
+      "fog": null,
       "id": "40f42a38-19e3-4ed6-90de-138fc409d6eb",
       "name": "Default",
       "reflections": {
@@ -7967,11 +8088,11 @@
         "url": "https://cdn.8thwall.com/web/assets/envmap/basic_env_map-m9hqpneh.jpg"
       },
       "sky": {
-        "type": "gradient",
-        "colors": [
-          "#e5f4ff",
-          "#00ccff"
-        ]
+        "type": "image",
+        "src": {
+          "type": "asset",
+          "asset": "assets/textures/skyboxes/sky_108_2k.png"
+        }
       }
     }
   },
