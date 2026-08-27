@@ -2,7 +2,6 @@
 // This component will appear as a custom component in the editor.
 
 import * as ecs from '@8thwall/ecs'  // This is how you access the ecs library.
-import { rocketController } from './rocket-controller';
 
 const MoverTransform = ecs.registerComponent({
   name: 'moverTransform',
@@ -45,6 +44,7 @@ const MoverTransform = ecs.registerComponent({
       entity.lookAt(target);
     })
   },
+})
   
 
 export { MoverTransform }
