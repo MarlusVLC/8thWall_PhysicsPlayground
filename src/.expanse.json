@@ -8139,9 +8139,12 @@
           "parameters": {
             "target": {
               "type": "entity",
-              "id": "f687cdfd-cc08-4755-b2f2-5386dcfabe0b"
+              "id": "8b679c5f-2ff3-434c-b084-908529102393"
             },
-            "translationSpeed": 2
+            "translationSpeed": 2,
+            "targetRadius": 5,
+            "originRadius": 1,
+            "rotationSpeed": 90
           }
         }
       },
@@ -8534,26 +8537,11 @@
       },
       "parentId": "40f42a38-19e3-4ed6-90de-138fc409d6eb",
       "components": {
-        "b098930c-31d2-408b-ba46-aeb3f8d05209": {
-          "id": "b098930c-31d2-408b-ba46-aeb3f8d05209",
-          "name": "entity-tester",
+        "3ae1b120-1b2d-41df-b35c-9cddd93cc489": {
+          "id": "3ae1b120-1b2d-41df-b35c-9cddd93cc489",
+          "name": "touch_mover",
           "parameters": {
-            "entityA": {
-              "type": "entity",
-              "id": "d958c992-c3d0-44df-a660-3d78b0793b82"
-            },
-            "entityB": {
-              "type": "entity",
-              "id": "2e9e57ab-bb0b-4cd1-a5d5-a3c07d88dc3d"
-            },
-            "entityC": {
-              "type": "entity",
-              "id": "5f0f61d7-f023-4e35-a88a-fc854d8b2554"
-            },
-            "parentA": {
-              "type": "entity",
-              "id": "f0255dc0-52de-467d-8dd4-84b4f3d541fb"
-            }
+            "moveRate": 1
           }
         }
       },

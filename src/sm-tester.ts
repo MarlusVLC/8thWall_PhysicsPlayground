@@ -29,6 +29,12 @@ ecs.registerComponent({
 
     const trigger = ecs.defineTrigger();
 
+    // const handleTouchStart = (event: ecs.ScreenTouchStartEvent) => {
+    //   console.log('SCREEN_TOUCH_START position:', event.position);
+    //   console.log('SCREEN_TOUCH_START world position:', event.worldPosition);
+    // }
+
+    
     const handleTouchStart = (event) => {
       console.log('SCREEN_TOUCH_START position:', event.data.position);
       console.log('SCREEN_TOUCH_START world position:', event.data.worldPosition);
@@ -49,7 +55,7 @@ ecs.registerComponent({
         target: world.events.globalId,
         where: (event) => {
           handleTouchStart(event);
-          return event.data.position.y < 0.5;
+          return event.data.position.y < 0;
         }
       })
 

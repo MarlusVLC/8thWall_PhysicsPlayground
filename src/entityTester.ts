@@ -2,6 +2,7 @@ import * as ecs from '@8thwall/ecs'
 import * as transformHelpers from './transformHelpers'
 import { identifier } from './identitifier';
 
+
 ecs.registerComponent({
     name: 'entity-tester',
     schema: {
@@ -86,22 +87,22 @@ ecs.registerComponent({
         const origin = ecs.math.vec3.from(ecs.Position.get(world, parentA))
         const dirToTarget = (posVec3.minus(origin)).normalize();
         console.log('dirToTarget = ', dirToTarget)
-        // const raycastTimeout = world.time.setTimeout(() => {
-        //     const intersect = world.raycast(origin, dirToTarget)
-        //     console.log('targets hit = ', intersect.length)
+        const raycastTimeout = world.time.setTimeout(() => {
+            const intersect = world.raycast(origin, dirToTarget)
+            console.log('targets hit = ', intersect.length)
 
-        //     intersect.forEach(intersection => {
-        //         const entity = world.getEntity(intersection.eid);
+            intersect.forEach(intersection => {
+                const entity = world.getEntity(intersection.eid);
                 
-        //         console.log('intersection entity = ', entity.has(identifier) ? entity.get(identifier).name : intersection.eid)
-        //         console.log('entity position = ', entity.getWorldPosition());
-        //         console.log('intersection point = ', intersection.point);
-        //         console.log('intersection distance = ', intersection.distance)
-        //         const a = intersection.threeData;
-        //         console.log('threedata = ', a);
-        //         entity.delete;
-        //     })
-        // }, 5000)
+                console.log('intersection entity = ', entity.has(identifier) ? entity.get(identifier).name : intersection.eid)
+                console.log('entity position = ', entity.getWorldPosition());
+                console.log('intersection point = ', intersection.point);
+                console.log('intersection distance = ', intersection.distance)
+                const a = intersection.threeData;
+                console.log('threedata = ', a);
+                entity.delete;
+            })
+        }, 5000)
 
     },
     // stateMachine: ({world, eid, schemaAttribute, dataAttribute}) => {

@@ -54,3 +54,12 @@ export function axisAngleDegrees(quat: math.Quat): math.Vec3 {
     ogAxisAngle.setZ(ogAxisAngle.z * (180/Math.PI));
     return ogAxisAngle;
 }
+
+export function sqrDistance(a: math.Vec3, b: math.Vec3): number {
+    return Math.pow(b.x-a.x,2)+Math.pow(b.y-a.y,2)+Math.pow(b.z-a.z,2);
+}
+
+export function moveTowardsRuntime(world: World, speed: number, entity: Entity, targetPos: math.Vec3){
+    const direction = (targetPos.minus(entity.getWorldPosition())).setNormalize();
+    entity.translateWorld(direction.scale(speed*world.time.delta/1000));
+}
