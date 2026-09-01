@@ -98,8 +98,8 @@ ecs.registerComponent({
                 console.log('entity position = ', entity.getWorldPosition());
                 console.log('intersection point = ', intersection.point);
                 console.log('intersection distance = ', intersection.distance)
-                const a = intersection.threeData;
-                console.log('threedata = ', a);
+                const intersectionData = intersection.threeData;
+                console.log('threedata = ', intersectionData);
                 entity.delete;
             })
         }, 5000)

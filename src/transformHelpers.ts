@@ -1,5 +1,6 @@
-import type { World, Eid, Entity, math } from "@8thwall/ecs";
+import { type World, type Eid, type Entity, math, eid, ColliderShape, ColliderType } from "@8thwall/ecs";
 import { identifier } from './identitifier';
+import { Object3D, Mesh, PerspectiveCamera } from "three";
         
 export function logWorldTransform (world: World, entity: Eid, entityName: string) {
     const transform = world.transform.getWorldTransform(entity);
@@ -62,4 +63,44 @@ export function sqrDistance(a: math.Vec3, b: math.Vec3): number {
 export function moveTowardsRuntime(world: World, speed: number, entity: Entity, targetPos: math.Vec3){
     const direction = (targetPos.minus(entity.getWorldPosition())).setNormalize();
     entity.translateWorld(direction.scale(speed*world.time.delta/1000));
+}
+
+export function isInOrthoCameraView(world: World, targetEid: Eid): boolean {
+    const cameraEid = world.camera.getActiveEid();
+
+    // Posição e rotação da câmera ativa
+    const camPos = world.transform.getWorldPosition(cameraEid);
+    const camRotation = world.transform.getWorldQuaternion(cameraEid);
+
+    // Parâmetros de projeção (assume câmera perspectiva)
+    const camObj = world.three.activeCamera as PerspectiveCamera;
+
+    // Vetores locais da câmera (frente, direita, cima) há no espaço do mundo
+    const camRotMat = math.mat4.r(camRotation);
+    const camForward = camRotMat.timesVec(math.vec3.xyz(0, 0, -1));
+    const camRight = camRotMat.timesVec(math.vec3.xyz(-1, 0, 0));
+    const camUp = camRotMat.timesVec(math.vec3.xyz(0, 1, 0));
+
+    // Vetor câmera -> objeto
+    const targetPos = world.transform.getWorldPosition(targetEid);
+    const toTarget = targetPos.minus(camPos);
+
+    // Projeta em eixos locais da câmera
+    const depth = -toTarget.dot(camForward); // "Profundidade" (distância à frente da câmera)
+    const viewX = toTarget.dot(camRight); // Deslocamento horizontal
+    const viewY = toTarget.dot(camUp); // Deslocamento vertical
+
+    // Atrás da câmera ou muito longe (fora do near/fear) -> fora de vista
+        console.log(`DEPTH = ${depth} | NEAR = ${camObj.near} | FAR = ${camObj.far}`)
+
+    if (depth < camObj.near || depth > camObj.far) return false;
+
+
+    // Meia-altura/meia-largura do frustum nessa profundidade
+    const halfHeight = depth * Math.tan((camObj.fov * Math.PI / 180) / 2)
+    const halfWidth = halfHeight * camObj.aspect;
+    
+
+    return Math.abs(viewX) <= halfWidth && Math.abs(viewY) <= halfHeight;
+
 }

@@ -8546,7 +8546,14 @@
         }
       },
       "name": "Empty Object",
-      "order": 126.58508012042498
+      "order": 126.58508012042498,
+      "collider": {
+        "geometry": {
+          "type": "capsule",
+          "radius": 0.5,
+          "height": 1
+        }
+      }
     }
   },
   "sky": {

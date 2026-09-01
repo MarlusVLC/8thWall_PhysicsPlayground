@@ -1,4 +1,5 @@
 import * as ecs from '@8thwall/ecs'
+import * as transformHelper from './transformHelpers'
 
 ecs.registerComponent({
     name: 'touch_mover',
@@ -14,6 +15,8 @@ ecs.registerComponent({
         }
 
         const handleTouchStart = (event) => {
+            if (transformHelper.isInOrthoCameraView(world, eid) === false) return;
+
             //   const moveInput = event.data.position as ecs.math.Vec2;
             const moveInput = ecs.math.vec2.from(event.data.position);
             //   console.log('SCREEN_TOUCH_START position:', moveInput);
