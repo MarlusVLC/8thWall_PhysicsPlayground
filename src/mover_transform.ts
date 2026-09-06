@@ -110,7 +110,7 @@ const MoverTransform = ecs.registerComponent({
 
     returningState
     .onEnter(() => {
-      console.log('TARGET REACHED!')
+      // console.log('TARGET REACHED!')
       currentStateID = returningState;
     })
     .onTick(() => {

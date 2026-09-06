@@ -91,7 +91,7 @@ export function isInOrthoCameraView(world: World, targetEid: Eid): boolean {
     const viewY = toTarget.dot(camUp); // Deslocamento vertical
 
     // Atrás da câmera ou muito longe (fora do near/fear) -> fora de vista
-        console.log(`DEPTH = ${depth} | NEAR = ${camObj.near} | FAR = ${camObj.far}`)
+        // console.log(`DEPTH = ${depth} | NEAR = ${camObj.near} | FAR = ${camObj.far}`)
 
     if (depth < camObj.near || depth > camObj.far) return false;
 

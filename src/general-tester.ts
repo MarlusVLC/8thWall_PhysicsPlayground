@@ -1,4 +1,5 @@
 import * as ecs from '@8thwall/ecs'
+import { WebXRController } from 'three';
 
 ecs.registerComponent({
     name: 'general-tester',

@@ -7,4 +7,16 @@ const identifier = ecs.registerComponent({
     },
 })
 
+// export function getName(world: ecs.World, eid: ecs.Eid): string{
+//     return identifier.has(world, eid)
+//         ? identifier.get(world, eid).name
+//         : eid.toString();
+// }
+
+export const getName = (world: ecs.World, eid: ecs.Eid): string => {
+    return identifier.has(world, eid)
+        ? identifier.get(world, eid).name
+        : eid.toString();
+}
+
 export {identifier}

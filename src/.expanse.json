@@ -714,9 +714,10 @@
       },
       "id": "2f662aea-c65e-49f1-a851-951e3ff81bf6",
       "material": {
-        "color": "#4db2ff",
-        "opacity": 1,
-        "type": "basic"
+        "color": "#2f4d65",
+        "opacity": 0.619,
+        "type": "basic",
+        "forceTransparent": true
       },
       "name": "Water",
       "order": 3.850382334702025,
@@ -736,10 +737,7 @@
         1,
         1,
         1
-      ],
-      "shadow": {
-        "receiveShadow": true
-      }
+      ]
     },
     "30119bea-a210-4648-89ad-f0ed7ab4463a": {
       "collider": {
@@ -8511,7 +8509,7 @@
       "id": "8b679c5f-2ff3-434c-b084-908529102393",
       "position": [
         5.332852682640782,
-        5.922157911979611,
+        2.992327594191873,
         7.9089533542672905
       ],
       "rotation": [
@@ -8537,23 +8535,189 @@
       },
       "parentId": "40f42a38-19e3-4ed6-90de-138fc409d6eb",
       "components": {
-        "3ae1b120-1b2d-41df-b35c-9cddd93cc489": {
-          "id": "3ae1b120-1b2d-41df-b35c-9cddd93cc489",
-          "name": "touch_mover",
+        "2fab17fd-d3dd-4e2c-8735-8a931e80745e": {
+          "id": "2fab17fd-d3dd-4e2c-8735-8a931e80745e",
+          "name": "Stateless Touch Mover",
           "parameters": {
-            "moveRate": 1
+            "moveRate": 3
           }
         }
       },
-      "name": "Empty Object",
-      "order": 126.58508012042498,
-      "collider": {
-        "geometry": {
-          "type": "capsule",
-          "radius": 0.5,
-          "height": 1
+      "name": "TouchMovingCube",
+      "order": 126.58508012042498
+    },
+    "aac6c436-ef83-4846-9a41-45d1ac3467ce": {
+      "id": "aac6c436-ef83-4846-9a41-45d1ac3467ce",
+      "position": [
+        0,
+        2.5199891749246452,
+        7.891516491073368
+      ],
+      "rotation": [
+        0,
+        0,
+        0,
+        1
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "geometry": {
+        "type": "sphere",
+        "radius": 0.5
+      },
+      "material": {
+        "type": "basic",
+        "color": "#056100",
+        "forceTransparent": true,
+        "opacity": 1
+      },
+      "parentId": "19d63a95-948b-4a35-a698-6f965e7d3438",
+      "components": {
+        "bcf0c71d-cb01-4c85-a61c-b0d8f56da30a": {
+          "id": "bcf0c71d-cb01-4c85-a61c-b0d8f56da30a",
+          "name": "Event Handler",
+          "parameters": {
+            "listenToDamageOnGlobalChannel": true
+          }
+        },
+        "f4d250f0-4625-4786-a4a2-b491ce2d9255": {
+          "id": "f4d250f0-4625-4786-a4a2-b491ce2d9255",
+          "name": "identifier",
+          "parameters": {
+            "name": "Event Listener"
+          }
         }
-      }
+      },
+      "name": "EventListener",
+      "order": 128.06676788732153
+    },
+    "19d63a95-948b-4a35-a698-6f965e7d3438": {
+      "id": "19d63a95-948b-4a35-a698-6f965e7d3438",
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0,
+        1
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "geometry": null,
+      "material": null,
+      "parentId": "40f42a38-19e3-4ed6-90de-138fc409d6eb",
+      "components": {},
+      "name": "EventTesters",
+      "order": 129.15452674954946
+    },
+    "a54ca4a1-069f-4dc9-9529-7c9294c3e384": {
+      "id": "a54ca4a1-069f-4dc9-9529-7c9294c3e384",
+      "position": [
+        2.8120376730754244,
+        2.5199891749246452,
+        7.891516491073368
+      ],
+      "rotation": [
+        0,
+        0,
+        0,
+        1
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "geometry": {
+        "type": "sphere",
+        "radius": 0.5
+      },
+      "material": {
+        "type": "basic",
+        "color": "#000000",
+        "opacity": 1
+      },
+      "components": {
+        "2de52041-b830-43c5-b9a2-4dcec4db5be9": {
+          "id": "2de52041-b830-43c5-b9a2-4dcec4db5be9",
+          "name": "Event Dispatcher",
+          "parameters": {
+            "handlerTarget": {
+              "type": "entity",
+              "id": "aac6c436-ef83-4846-9a41-45d1ac3467ce"
+            },
+            "useGlobal": true,
+            "damage": 70
+          }
+        },
+        "740cbe14-429b-4a5c-82a0-8e4119f29bee": {
+          "id": "740cbe14-429b-4a5c-82a0-8e4119f29bee",
+          "name": "identifier",
+          "parameters": {
+            "name": "Event Dispatcher"
+          }
+        }
+      },
+      "name": "EventDispatcher",
+      "order": 128.46962272802648,
+      "parentId": "19d63a95-948b-4a35-a698-6f965e7d3438"
+    },
+    "1fa286d0-000d-409c-8b7e-333ff466f427": {
+      "id": "1fa286d0-000d-409c-8b7e-333ff466f427",
+      "position": [
+        1.6347939175603636,
+        2.5199891749246452,
+        10.036604956680064
+      ],
+      "rotation": [
+        0,
+        0,
+        0,
+        1
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "geometry": {
+        "type": "sphere",
+        "radius": 0.5
+      },
+      "material": {
+        "type": "basic",
+        "color": "#056100",
+        "forceTransparent": true,
+        "opacity": 1
+      },
+      "parentId": "19d63a95-948b-4a35-a698-6f965e7d3438",
+      "components": {
+        "bcf0c71d-cb01-4c85-a61c-b0d8f56da30a": {
+          "id": "bcf0c71d-cb01-4c85-a61c-b0d8f56da30a",
+          "name": "Event Handler",
+          "parameters": {
+            "listenToDamageOnGlobalChannel": true
+          }
+        },
+        "f4d250f0-4625-4786-a4a2-b491ce2d9255": {
+          "id": "f4d250f0-4625-4786-a4a2-b491ce2d9255",
+          "name": "identifier",
+          "parameters": {
+            "name": "Event Listener 1"
+          }
+        }
+      },
+      "name": "EventListener (1)",
+      "order": 128.28955840623053
     }
   },
   "sky": {

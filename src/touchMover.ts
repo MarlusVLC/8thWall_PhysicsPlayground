@@ -2,7 +2,7 @@ import * as ecs from '@8thwall/ecs'
 import * as transformHelper from './transformHelpers'
 
 ecs.registerComponent({
-    name: 'touch_mover',
+    name: 'Touch Mover',
     schema:{
         moveRate: ecs.f32,
     },
@@ -37,8 +37,8 @@ ecs.registerComponent({
             const moveVector = camRight.scale(-moveInput.x * moveRate)
                 .setPlus(camUp.setScale(moveInput.y * moveRate));
 
-            console.log('LERPED INPUT = ', moveInput)
-            console.log('MOVE VECTOR = ', moveVector)
+            // console.log('LERPED INPUT = ', moveInput)
+            // console.log('MOVE VECTOR = ', moveVector)
             
             entity.translateWorld(moveVector);
         }
